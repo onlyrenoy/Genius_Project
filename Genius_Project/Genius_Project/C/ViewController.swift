@@ -37,13 +37,13 @@ extension ViewController: WKNavigationDelegate  {
         if accountTokenFromURL.contains("access_token") {
             getAccountToken = getToken
             
-            if let AT = URL(string: "https://api.instagram.com/v1/users/self/?access_token=\(getAccountToken)"){
+            if let AT = URL(string: "https://api.instagram.com/v1/users/self/media/recent/?access_token=\(getAccountToken)"){
                 let session = URLSession.shared
                 let task = session.dataTask(with: AT) { (data, resp, err) in
                     if let data = data {
-                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                            print(json)
-                        }
+                        let jsonDecoder = JSONDecoder()
+                        let responseModel = try? jsonDecoder.decode(Base.self, from: data)
+                        print(responseModel)
                     }
                 }
                 task.resume()

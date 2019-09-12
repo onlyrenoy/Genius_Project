@@ -14,6 +14,10 @@
 		840362F1232046DF007D22FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840362EF232046DF007D22FD /* LaunchScreen.storyboard */; };
 		8441E11A23243CA60018B73A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441E11923243CA60018B73A /* API.swift */; };
 		848D4A4B232912A0008AEBFD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848D4A4A232912A0008AEBFD /* WebKit.framework */; };
+		84EA5391232AE80200F8E5C0 /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA538D232AE80200F8E5C0 /* Meta.swift */; };
+		84EA5392232AE80200F8E5C0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA538E232AE80200F8E5C0 /* Data.swift */; };
+		84EA5393232AE80200F8E5C0 /* Counts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA538F232AE80200F8E5C0 /* Counts.swift */; };
+		84EA5394232AE80200F8E5C0 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA5390232AE80200F8E5C0 /* Base.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		840362F2232046DF007D22FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8441E11923243CA60018B73A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		848D4A4A232912A0008AEBFD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		84EA538D232AE80200F8E5C0 /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
+		84EA538E232AE80200F8E5C0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		84EA538F232AE80200F8E5C0 /* Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counts.swift; sourceTree = "<group>"; };
+		84EA5390232AE80200F8E5C0 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 		8441E11B232442A50018B73A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				84EA5314232AE0F000F8E5C0 /* ContentModel */,
+				84EA5313232AE0D500F8E5C0 /* DescriptionModel */,
 				8441E11923243CA60018B73A /* API.swift */,
 			);
 			path = M;
@@ -109,6 +119,24 @@
 				848D4A4A232912A0008AEBFD /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84EA5313232AE0D500F8E5C0 /* DescriptionModel */ = {
+			isa = PBXGroup;
+			children = (
+				84EA5390232AE80200F8E5C0 /* Base.swift */,
+				84EA538F232AE80200F8E5C0 /* Counts.swift */,
+				84EA538E232AE80200F8E5C0 /* Data.swift */,
+				84EA538D232AE80200F8E5C0 /* Meta.swift */,
+			);
+			path = DescriptionModel;
+			sourceTree = "<group>";
+		};
+		84EA5314232AE0F000F8E5C0 /* ContentModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ContentModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,8 +210,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EA5391232AE80200F8E5C0 /* Meta.swift in Sources */,
+				84EA5392232AE80200F8E5C0 /* Data.swift in Sources */,
 				840362E9232046DE007D22FD /* ViewController.swift in Sources */,
+				84EA5393232AE80200F8E5C0 /* Counts.swift in Sources */,
 				8441E11A23243CA60018B73A /* API.swift in Sources */,
+				84EA5394232AE80200F8E5C0 /* Base.swift in Sources */,
 				840362E7232046DE007D22FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
