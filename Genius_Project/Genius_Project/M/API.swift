@@ -17,4 +17,9 @@ struct API {
     static let INSTAGRAM_SCOPE = "follower_list"
     
     static let IG_LOGGED = "https://api.instagram.com/v1/users/self/"
+    
+    static let BASIC_INFO = "https://api.instagram.com/v1/users/self/?access_token="
+    static let CONTENT_INFO = "https://api.instagram.com/v1/users/self/media/recent/?access_token="
+    
+    
 }

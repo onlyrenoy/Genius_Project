@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Genius_Project/C/ViewController.swift"
-            timestampString = "590014822.507018"
+            timestampString = "590267998.511377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "sessionManager(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

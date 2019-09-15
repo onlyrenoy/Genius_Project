@@ -25,30 +25,48 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: WKNavigationDelegate  {
-    //URL TO GET INFO URL(string: "https://api.instagram.com/v1/users/self/?access_token=\(getAccountToken)")
-    //URL TO GET IMAGES URL(string: "https://api.instagram.com/v1/users/self/media/recent/?access_token=\(getAccountToken)")
-    
+
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard let accountTokenFromURL = webView.url?.absoluteString else { return }
-        guard let getToken = accountTokenFromURL.components(separatedBy: "#access_token=").last else{
-            return
+        
+        if let url = getToken(webView: webView, urlString: API.BASIC_INFO) {
+            sessionManager(url: url)
         }
         
-        if accountTokenFromURL.contains("access_token") {
-            getAccountToken = getToken
-            
-            if let AT = URL(string: "https://api.instagram.com/v1/users/self/media/recent/?access_token=\(getAccountToken)"){
-                let session = URLSession.shared
-                let task = session.dataTask(with: AT) { (data, resp, err) in
-                    if let data = data {
-                        let jsonDecoder = JSONDecoder()
-                        let responseModel = try? jsonDecoder.decode(Base.self, from: data)
-                        print(responseModel)
-                    }
-                }
-                task.resume()
-            }
-        }
         decisionHandler(.allow)
     }
+    
+    func getToken(webView: WKWebView, urlString: String) -> URL? {
+        let accountTokenFromURL = webView.url?.absoluteString
+        let getToken = accountTokenFromURL?.components(separatedBy: "#access_token=").last ?? ""
+        if (accountTokenFromURL?.contains("access_token")) != nil {
+            return URL(string: urlString+getToken )
+            }
+        return nil
+    }
+    
+    func sessionManager(url: URL) {
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, resp, err) in
+            if let data = data {
+                let jsonDecoder = JSONDecoder()
+                let responseModel = try? jsonDecoder.decode(Base.self, from: data)
+                print(responseModel)
+            }
+        }
+        task.resume()
+    }
 }
+
+//extension UIImageView {
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(from: url as! Decoder) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

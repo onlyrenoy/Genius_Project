@@ -8,18 +8,20 @@
 
 import Foundation
 struct Base : Codable {
-	let data : BaseData?
+    let pagination: Pagination?
+	let data : Data?
 	let meta : Meta?
 
 	enum CodingKeys: String, CodingKey {
-
+        case pagination = "pagination"
 		case data = "data"
 		case meta = "meta"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		data = try values.decodeIfPresent(BaseData.self, forKey: .data)
+        pagination = try values.decodeIfPresent(Pagination.self, forKey: .pagination)
+		data = try values.decodeIfPresent(Data.self, forKey: .data)
 		meta = try values.decodeIfPresent(Meta.self, forKey: .meta)
 	}
 
