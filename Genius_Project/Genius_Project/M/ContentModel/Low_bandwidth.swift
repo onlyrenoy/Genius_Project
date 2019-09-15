@@ -1,37 +1,68 @@
-/* 
-Copyright (c) 2019 Swift Models Generated from JSON powered by http://www.json4swift.com
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar
-
-*/
 
 import Foundation
-struct Low_bandwidth : Codable {
-	let width : Int?
-	let height : Int?
-	let url : String?
-	let id : String?
+ 
 
-	enum CodingKeys: String, CodingKey {
+public class Low_bandwidth {
+	public var width : Int?
+	public var height : Int?
+	public var url : String?
+	public var id : String?
 
-		case width = "width"
-		case height = "height"
-		case url = "url"
-		case id = "id"
+/**
+    Returns an array of models based on given dictionary.
+    
+    Sample usage:
+    let low_bandwidth_list = Low_bandwidth.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
+
+    - parameter array:  NSArray from JSON dictionary.
+
+    - returns: Array of Low_bandwidth Instances.
+*/
+    public class func modelsFromDictionaryArray(array:NSArray) -> [Low_bandwidth]
+    {
+        var models:[Low_bandwidth] = []
+        for item in array
+        {
+            models.append(Low_bandwidth(dictionary: item as? NSDictionary ?? ["":""])!)
+        }
+        return models
+    }
+
+/**
+    Constructs the object based on the given dictionary.
+    
+    Sample usage:
+    let low_bandwidth = Low_bandwidth(someDictionaryFromJSON)
+
+    - parameter dictionary:  NSDictionary from JSON.
+
+    - returns: Low_bandwidth Instance.
+*/
+	required public init?(dictionary: NSDictionary) {
+
+		width = dictionary["width"] as? Int
+		height = dictionary["height"] as? Int
+		url = dictionary["url"] as? String
+		id = dictionary["id"] as? String
 	}
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		width = try values.decodeIfPresent(Int.self, forKey: .width)
-		height = try values.decodeIfPresent(Int.self, forKey: .height)
-		url = try values.decodeIfPresent(String.self, forKey: .url)
-		id = try values.decodeIfPresent(String.self, forKey: .id)
+		
+/**
+    Returns the dictionary representation for the current instance.
+    
+    - returns: NSDictionary.
+*/
+	public func dictionaryRepresentation() -> NSDictionary {
+
+		let dictionary = NSMutableDictionary()
+
+		dictionary.setValue(self.width, forKey: "width")
+		dictionary.setValue(self.height, forKey: "height")
+		dictionary.setValue(self.url, forKey: "url")
+		dictionary.setValue(self.id, forKey: "id")
+
+		return dictionary
 	}
 
 }
