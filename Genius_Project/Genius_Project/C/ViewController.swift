@@ -28,14 +28,15 @@ class ViewController: UIViewController {
 extension ViewController: WKNavigationDelegate  {
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
+
         if let url = getToken(webView: webView, urlString: API.CONTENT_INFO) {
             retriveFrom(url: url)
+            
         }
         
         decisionHandler(.allow)
     }
-    
+
     func getToken(webView: WKWebView, urlString: String) -> URL? {
         let accountTokenFromURL = webView.url?.absoluteString
         let getToken = accountTokenFromURL?.components(separatedBy: "#access_token=").last ?? ""

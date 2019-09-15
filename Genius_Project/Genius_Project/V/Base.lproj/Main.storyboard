@@ -38,11 +38,27 @@
                     </view>
                     <connections>
                         <outlet property="webView" destination="NZ8-Nc-lB5" id="5zT-W1-GzH"/>
+                        <segue destination="ImE-Ph-Xjo" kind="show" identifier="ToPage" id="dIE-jY-Cvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDg-FH-NK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1085.0000000000002" y="152"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jNw-qG-grz">
+            <objects>
+                <viewController id="ImE-Ph-Xjo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EKj-9O-a1A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.66274509800000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="VYj-jS-GRc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhH-Fx-vuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="163"/>
         </scene>
     </scenes>
 </document>
