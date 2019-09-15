@@ -28,7 +28,7 @@ extension ViewController: WKNavigationDelegate  {
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        if let url = getToken(webView: webView, urlString: API.BASIC_INFO) {
+        if let url = getToken(webView: webView, urlString: API.CONTENT_INFO) {
             sessionManager(url: url)
         }
         
@@ -48,9 +48,27 @@ extension ViewController: WKNavigationDelegate  {
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, resp, err) in
             if let data = data {
-                let jsonDecoder = JSONDecoder()
-                let responseModel = try? jsonDecoder.decode(Base.self, from: data)
-                print(responseModel)
+                
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    let babyTest = json as? Baby
+                    if let bb = babyTest {
+                        bb.counts
+                    }
+                } catch {
+                    print("JSON error: \(error.localizedDescription)")
+                }
+                
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let responseModel = try? jsonDecoder.decode(Base.self, from: data)
+                
+                    print(responseModel)
+                } catch let DecodingError.typeMismatch(Base, context) {
+                    print(context)
+                }
+                
             }
         }
         task.resume()

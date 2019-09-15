@@ -13,16 +13,16 @@ struct Base : Codable {
 	let meta : Meta?
 
 	enum CodingKeys: String, CodingKey {
-        case pagination = "pagination"
 		case data = "data"
 		case meta = "meta"
+        case pagination = "pagination"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-        pagination = try values.decodeIfPresent(Pagination.self, forKey: .pagination)
 		data = try values.decodeIfPresent(Data.self, forKey: .data)
 		meta = try values.decodeIfPresent(Meta.self, forKey: .meta)
+        pagination = try values.decodeIfPresent(Pagination.self, forKey: .pagination)
 	}
 
 }
