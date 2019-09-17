@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "init(from:)"
+            landmarkName = "modelsFromDictionaryArray(array:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
